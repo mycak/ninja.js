@@ -1,12 +1,12 @@
 import DataTable from './DataTable';
 import './App.css';
 
-const App = ({rows}) => {
+const App = () => {
   return (
     <div className="container mt-3">
-      <DataTable rows={rows} locale="da" rowsPerPage={5} />
+      <DataTable locale="da" />
     </div>
-  )
-}
+  );
+};
 
 export default App;

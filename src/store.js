@@ -1,21 +1,36 @@
-import React, {createContext, useReducer} from 'react';
-import {usersData} from './data'
+import React, { createContext, useReducer } from 'react';
+import { usersData } from './data';
 
-const initialState = usersData;
-const store = createContext(initialState);
+const defaultState = {
+  rows: usersData,
+  rowsToDisplay: usersData,
+  currentPageNumber: 0,
+  rowsPerPage: 2,
+};
+
+const store = createContext(defaultState);
 const { Provider } = store;
 
-const StateProvider = ( { children } ) => {
+const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, action) => {
-    switch(action.type) {
-      case 'action description':
-        return state;
+    switch (action.type) {
+      case 'ROWS_FILTER':
+        return {
+          ...state,
+          rowsToDisplay: action.payload,
+          currentPageNumber: 0,
+        };
+      case 'PAGE_CHANGE':
+        return {
+          ...state,
+          currentPageNumber: action.payload,
+        };
       default:
         throw new Error();
     }
-  }, initialState);
+  }, defaultState);
 
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
-export { store, StateProvider }
+export { store, StateProvider };
