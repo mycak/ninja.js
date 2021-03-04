@@ -4,7 +4,8 @@ import App from './App';
 import { StateProvider } from './store';
 
 ReactDOM.render(
-<StateProvider>
+  <StateProvider>
     <App />
-  </StateProvider>
-    , document.getElementById('root'));
+  </StateProvider>,
+  document.getElementById('root')
+);
