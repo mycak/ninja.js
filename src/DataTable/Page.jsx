@@ -1,33 +1,9 @@
 import React from 'react'
 
-const Page = (props) => {
-  const { pageNumber, currentPageNumber, onChange } = props
-
-  const isActivePage = () => {
-    return currentPageNumber == pageNumber
-  }
-
-  const renderedPageNumber = () => {
-    return pageNumber + 1
-  }
-
-  const click = (event) => {
-    event.preventDefault()
-    onChange(pageNumber)
-  }
-
-  if (isActivePage()) {
-    return(
-      <li className="page-item mr-1">
-        <button className="page-link button-outline" onClick={click} >{renderedPageNumber()}</button>
-      </li>
-    )
-  }
-  return(
+const Page = ({ pageNumber, isActive, onChange }) => (
     <li className="page-item mr-1">
-      <button className="page-link" onClick={click} >{renderedPageNumber()}</button>
+      <button className={`page-link ${ isActive?'button-outline':''}`} onClick={()=>onChange(pageNumber)} >{pageNumber+1}</button>
     </li>
   )
-}
 
 export default Page

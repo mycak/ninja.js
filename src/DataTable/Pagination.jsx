@@ -1,26 +1,20 @@
 import React from 'react'
-
 import Page from './Page'
 
 const Pagination = ({ currentPageNumber, totalNumberOfPages, onChange }) => {
-  const pages =
-    Array
-      .from(Array(totalNumberOfPages).keys())
-      .map(pageNumber => {
-        return <Page
-          key={pageNumber}
-          currentPageNumber={currentPageNumber}
-          pageNumber={pageNumber}
-          onChange={onChange} />
-      })
-
-  if (pages.length <= 1) {
-    return null
-  }
   return(
-    <ul className="pagination">
-      {pages}
-    </ul>
+    <>
+    {(totalNumberOfPages<=1) && null}
+    {(totalNumberOfPages>1) && <ul className="pagination">
+      {[...Array(totalNumberOfPages)].map((e, i) => <Page
+        key={i}
+        currentPageNumber={currentPageNumber}
+        pageNumber={i}
+        onChange={onChange}
+        isActive={i===currentPageNumber}
+         />)}
+    </ul>}
+    </>
   )
 }
 

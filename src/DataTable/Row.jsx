@@ -1,9 +1,6 @@
 import React from 'react'
 
-const Row = (props) => {
-  const { row } = props
-
-  return (
+const Row = ({row}) => (
     <tr>
       <td>
         <a href={row.edit_path}>
@@ -13,6 +10,5 @@ const Row = (props) => {
       </td>
     </tr>
   )
-}
 
 export default Row
