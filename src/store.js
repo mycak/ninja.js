@@ -1,11 +1,11 @@
 import React, { createContext, useReducer } from 'react';
-import { usersData } from './data';
+import { usersData } from './utils/data';
 
 const defaultState = {
   rows: usersData,
   rowsToDisplay: usersData,
   currentPageNumber: 0,
-  rowsPerPage: 2,
+  rowsPerPage: 3,
 };
 
 const store = createContext(defaultState);
