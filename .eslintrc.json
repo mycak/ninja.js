@@ -22,7 +22,7 @@
     "react/jsx-uses-vars": "error",
     "linebreak-style": [
       "error",
-      "unix"
+      "windows"
     ],
     "quotes": [
       "error",
