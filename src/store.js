@@ -5,7 +5,7 @@ const defaultState = {
   rows: usersData,
   rowsToDisplay: usersData,
   currentPageNumber: 0,
-  rowsPerPage: 3,
+  rowsPerPage: 8,
 };
 
 const store = createContext(defaultState);
